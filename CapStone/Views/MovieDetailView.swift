@@ -9,31 +9,41 @@ import SwiftUI
 
 struct MovieDetailView: View {
     var movie: Movie
-    
-    
+
     var body: some View {
-        NavigationStack {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topTrailing, endPoint: .bottomLeading)
             
-                
-                VStack(spacing: 20) {
+            VStack(spacing:110) {
+                HStack(spacing: 50) {
+                    Text("Release Date: \(movie.releaseDate)")
+                    Text("Genre: \(movie.genre)")
+                }
+                VStack() {
+                    Text("Desciption")
+                        .font(.title)
                     Text(movie.description)
                         .padding()
-                        .border(.blue)
-                        
+                        .border(.black)
+                }
+                VStack {
+                    Text("My Thoughts")
+                        .font(.title)
                     Text(movie.myReview)
                         .padding()
-                        .border(.black, width: 3)
+                        .border(.black)
                 }
             }
         }
+        .ignoresSafeArea()
         .navigationTitle(movie.title)
     }
 }
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movie: MoviesWatch.moviesWatched.first!)
+        NavigationView {
+            MovieDetailView(movie: MoviesWatch.moviesWatched.first!)
+        }
     }
 }

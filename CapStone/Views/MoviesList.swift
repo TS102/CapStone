@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct MovieListView: View {
-
+    @State private var isActive: Bool = false
+    
+    
+    
     var movies: [Movie] = MoviesWatch.moviesWatched
+    var startPoint = UnitPoint.topLeading
+    var endPoint = UnitPoint.bottomTrailing
     
     var body: some View {
         
-        NavigationStack {
             List(movies, id: \.id) { movie in
                 NavigationLink {
                     MovieDetailView(movie: movie)
@@ -32,15 +36,22 @@ struct MovieListView: View {
                 .padding()
             }
             .background {
-                LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint)
             }
             .scrollContentBackground(.hidden)
             .toolbar {
-                Button("Add") {}
+                NavigationLink(destination: AddMovieView(), label: { Text("ADD")})
+                
+                
+//                NavigationLink {
+//                    AddMovieView()
+//                } label: {
+//                    Text("Add")
+//                }
             }
             .navigationTitle("Movie List")
+            .background(LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint))
             }
-        }
     }
 
 struct MovieListView_Previews: PreviewProvider {

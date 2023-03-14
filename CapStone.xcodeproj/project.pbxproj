@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EC360DC29BF732F004E99EC /* AddMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC360DB29BF732F004E99EC /* AddMovieView.swift */; };
 		3ECD4B2F29BB7BF000ACD86F /* CapStoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B2E29BB7BF000ACD86F /* CapStoneApp.swift */; };
 		3ECD4B3129BB7BF000ACD86F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3029BB7BF000ACD86F /* ContentView.swift */; };
 		3ECD4B3329BB7BF200ACD86F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3229BB7BF200ACD86F /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3EC360DB29BF732F004E99EC /* AddMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieView.swift; sourceTree = "<group>"; };
 		3ECD4B2B29BB7BF000ACD86F /* CapStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECD4B2E29BB7BF000ACD86F /* CapStoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapStoneApp.swift; sourceTree = "<group>"; };
 		3ECD4B3029BB7BF000ACD86F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				3ECD4B3029BB7BF000ACD86F /* ContentView.swift */,
 				3ECD4B4629BB8B1100ACD86F /* MoviesList.swift */,
 				3ECD4B4329BB803300ACD86F /* MovieDetailView.swift */,
+				3EC360DB29BF732F004E99EC /* AddMovieView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ECD4B4729BB8B1100ACD86F /* MoviesList.swift in Sources */,
+				3EC360DC29BF732F004E99EC /* AddMovieView.swift in Sources */,
 				3ECD4B4429BB803300ACD86F /* MovieDetailView.swift in Sources */,
 				3ECD4B4229BB7C5200ACD86F /* Movies.swift in Sources */,
 				3ECD4B3829BB7BF200ACD86F /* Persistence.swift in Sources */,
