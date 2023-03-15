@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+
 struct MovieListView: View {
     @State var movies: [Movie] = MoviesWatch.moviesWatched
     
     var startPoint = UnitPoint.topLeading
     var endPoint = UnitPoint.bottomTrailing
     
+
+    
     var body: some View {
+      
         
             List(movies, id: \.id) { movie in
                 NavigationLink {
@@ -25,7 +29,7 @@ struct MovieListView: View {
                             .font(.largeTitle)
                             .fontWeight(.ultraLight)
                             
-                        Text(movie.releaseDate)
+                        Text("\(movie.releaseDate.formatted(.dateTime.day().month().year()))")
                             .lineLimit(1)
                             .fixedSize()
                     }

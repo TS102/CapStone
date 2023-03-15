@@ -14,8 +14,12 @@ struct AddMovieView: View {
     @State private var genre: String = ""
     @State private var description: String = ""
     @State private var myReview: String = ""
+    @State private var date = Date()
     
+ 
+
     @Binding var movies: [Movie]
+    
 
     
     var body: some View {
@@ -27,8 +31,8 @@ struct AddMovieView: View {
                         Text("Movie:")
                         TextField("", text: $movieTitle).border(.black)
                         
-                        Text("ReleaseDate")
-                        TextField("", text: $releaseDate).border(.black)
+                        Spacer()
+                        DatePicker("release Date", selection: $date, displayedComponents: [.date])
                         
                         Text("Genre:")
                         TextField("", text: $genre).border(.black)
@@ -42,8 +46,8 @@ struct AddMovieView: View {
                     TextField("", text: $myReview).border(.black)
                 }
                 Button("Add Movie") {
-                    let newMovie = Movie(title: movieTitle, releaseDate: releaseDate, genre: genre, description: description, myReview: myReview)
-                    
+                    let newMovie = Movie(title: movieTitle, releaseDate: date, genre: genre, description: description, myReview: myReview)
+
                     movies.append(newMovie)
                     
                     
