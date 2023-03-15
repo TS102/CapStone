@@ -15,8 +15,7 @@ struct AddMovieView: View {
     @State private var description: String = ""
     @State private var myReview: String = ""
     
-
-    
+    @Binding var movies: [Movie]
 
     
     var body: some View {
@@ -43,6 +42,12 @@ struct AddMovieView: View {
                     TextField("", text: $myReview).border(.black)
                 }
                 Button("Add Movie") {
+                    let newMovie = Movie(title: movieTitle, releaseDate: releaseDate, genre: genre, description: description, myReview: myReview)
+                    
+                    movies.append(newMovie)
+                    
+                    
+                                    
                 } .foregroundColor(Color.blue)
                     .font(.title)
                     .frame(maxWidth: .infinity)
@@ -55,7 +60,7 @@ struct AddMovieView: View {
 struct AddMovieView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddMovieView()
+            AddMovieView(movies: .constant([]))
         }
     }
 }

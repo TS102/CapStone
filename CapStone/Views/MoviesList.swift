@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct MovieListView: View {
-    @State private var isActive: Bool = false
+    @State var movies: [Movie] = MoviesWatch.moviesWatched
     
-    
-    
-    var movies: [Movie] = MoviesWatch.moviesWatched
     var startPoint = UnitPoint.topLeading
     var endPoint = UnitPoint.bottomTrailing
     
@@ -40,14 +37,9 @@ struct MovieListView: View {
             }
             .scrollContentBackground(.hidden)
             .toolbar {
-                NavigationLink(destination: AddMovieView(), label: { Text("ADD")})
+                NavigationLink(destination: AddMovieView(movies: $movies), label: { Text("ADD")})
                 
-                
-//                NavigationLink {
-//                    AddMovieView()
-//                } label: {
-//                    Text("Add")
-//                }
+            
             }
             .navigationTitle("Movie List")
             .background(LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint))
