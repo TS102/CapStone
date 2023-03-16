@@ -16,7 +16,7 @@ struct MovieDetailView: View {
             
             VStack(spacing:110) {
                 HStack(spacing: 50) {
-                    Text("Release Date: \(movie.releaseDate)")
+                    Text("Release Date: \(movie.releaseDate.formatted(.dateTime.day().year().month()))")
                     Text("Genre: \(movie.genre)")
                 }
                 VStack() {
