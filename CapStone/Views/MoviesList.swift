@@ -17,39 +17,29 @@ struct MovieListView: View {
 
     
     var body: some View {
-            List(movies, id: \.id) { movie in
-                NavigationLink {
-                    MovieDetailView(movie: movie)
-                } label: {
-//                    VStack {
-//                        
-//                        Text(movie.title)
-//                            .font(.largeTitle)
-//                            .fontWeight(.ultraLight)
-//                        
-//                        Text("\(movie.releaseDate.formatted(.dateTime.day().month().year()))")
-//                            .lineLimit(1)
-//                            .fixedSize()
-//                    }
-//                    
-                    ForEach(movies) { movie in
-                        /*@START_MENU_TOKEN@*/Text(movie.title)/*@END_MENU_TOKEN@*/
+            List() {
+                ForEach(movies, id: \.id) { movie in
+                    NavigationLink(destination: MovieDetailView(movie: movie)) {
+                        VStack {
+                            Text(movie.title)
+                                .font(.title)
+                            Text("\(movie.releaseDate.formatted(.dateTime.day().year().month()))")
+                        }
                     }
-                    
+                }
+                .onDelete(perform: delete)
                 }
                 .padding()
-            }
-        
-            .background {
+                .background {
                 LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint)
             }
             .scrollContentBackground(.hidden)
             .toolbar {
                 NavigationLink(destination: AddMovieView(movies: $movies), label: { Text("ADD")})
-                EditButton()
             }
             .navigationTitle("Movie List")
             .background(LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint))
+        
             }
     
     
