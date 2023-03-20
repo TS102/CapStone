@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
+    @FetchRequest(sortDescriptors: []) var movies: FetchedResults<Movies>
     
     var body: some View {
 
@@ -22,6 +22,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }

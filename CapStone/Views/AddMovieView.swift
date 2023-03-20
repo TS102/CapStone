@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct AddMovieView: View {
+    @Environment(\.managedObjectContext) var moc
+    
     @State private var movieTitle: String = ""
     @State private var releaseDate: String = ""
     @State private var genre: String = ""
@@ -46,9 +48,19 @@ struct AddMovieView: View {
                     TextField("", text: $myReview).border(.black)
                 }
                 Button("Add Movie") {
-                    let newMovie = Movie(title: movieTitle, releaseDate: date, genre: genre, description: description, myReview: myReview)
+                    
+                    let newMovie = Movies(context: moc)
+                    newMovie.id = UUID()
+                    newMovie.title = movieTitle
+//                    newMovie.releaseDateStr = releaseDate
+                    newMovie.genre = genre
+                    newMovie.movieDescription = description
+                    newMovie.myReview = myReview
+                    
+                    try?(moc.save())
 
-                    movies.append(newMovie)
+                    
+//                    movies.append(newMovie)
                     
                     
                                     
