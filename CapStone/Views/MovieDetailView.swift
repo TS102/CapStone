@@ -8,42 +8,48 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    var movie: Movie
-
+    var movie: Movies
     var body: some View {
+        
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topTrailing, endPoint: .bottomLeading)
             
             VStack(spacing:110) {
                 HStack(spacing: 50) {
-                    Text("Release Date: \(movie.releaseDate.formatted(.dateTime.day().year().month()))")
-                    Text("Genre: \(movie.genre)")
+                    if let date = movie.releaseDateStr {
+                        Text("\(date)")
+                    } else {
+                        Text("Release Date")
+                    }
+                 
+                   
+                    Text(movie.genre ?? "genre")
                 }
                 VStack() {
                     Text("Desciption")
                         .font(.title)
-                    Text(movie.description)
+                    Text(movie.movieDescription ?? "Description")
                         .padding()
                         .border(.black)
                 }
                 VStack {
                     Text("My Thoughts")
                         .font(.title)
-                    Text(movie.myReview)
+                    Text(movie.myReview ?? "my revie")
                         .padding()
                         .border(.black)
                 }
             }
         }
         .ignoresSafeArea()
-        .navigationTitle(movie.title)
+        .navigationTitle(movie.title ?? "Movie Title")
     }
 }
 
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            MovieDetailView(movie: MoviesWatch.moviesWatched.first!)
-        }
-    }
-}
+//struct MovieDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            MovieDetailView(movie: )
+//        }
+//    }
+//}

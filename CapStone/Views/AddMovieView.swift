@@ -12,16 +12,10 @@ struct AddMovieView: View {
     @Environment(\.managedObjectContext) var moc
     
     @State private var movieTitle: String = ""
-    @State private var releaseDate: String = ""
     @State private var genre: String = ""
     @State private var description: String = ""
     @State private var myReview: String = ""
     @State private var date = Date()
-    
- 
-
-//    @Binding var movies: [Movie]
-    
 
     
     var body: some View {
@@ -52,17 +46,14 @@ struct AddMovieView: View {
                     let newMovie = Movies(context: moc)
                     newMovie.id = UUID()
                     newMovie.title = movieTitle
-//                    newMovie.releaseDateStr = releaseDate
+                    newMovie.releaseDateStr = date
                     newMovie.genre = genre
                     newMovie.movieDescription = description
                     newMovie.myReview = myReview
                     
                     try?(moc.save())
                     print("movie has been added")
-                    
-//                    movies.append(newMovie)
-                    
-                    
+                                    
                                     
                 } .foregroundColor(Color.blue)
                     .font(.title)

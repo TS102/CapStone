@@ -11,7 +11,7 @@ import SwiftUI
 struct MovieListView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var movieModel: FetchedResults<Movies>
-    @State var movies: [Movie] = MoviesWatch.moviesWatched
+
     
     var startPoint = UnitPoint.topLeading
     var endPoint = UnitPoint.bottomTrailing
@@ -21,11 +21,18 @@ struct MovieListView: View {
     var body: some View {
         List() {
             ForEach(movieModel, id: \.id) { movie in
-                VStack {
-                    Text(movie.title ?? "movie title")
-                        .font(.title)
- 
-                }
+                NavigationLink(destination: MovieDetailView(movie: movie), label: {
+                    VStack {
+                        Text(movie.title ?? "movie title")
+                            .font(.title)
+                        
+                        if let date = movie.releaseDateStr {
+                            Text("\(date)")
+                        } else {
+                            Text("Release Date")
+                        }
+                    }
+                })
             }
             VStack {
                 Text("movie count \(movieModel.count)")
