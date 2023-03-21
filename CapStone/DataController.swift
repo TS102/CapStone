@@ -9,7 +9,7 @@ import Foundation
 
 
 class DataController: ObservableObject {
-    let container = NSPersistentContainer(name: "MovieDataModel")
+    let container = NSPersistentContainer(name: "MovieModel")
     
     init() {
         container.loadPersistentStores { description, error in

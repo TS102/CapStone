@@ -38,7 +38,7 @@ struct MovieListView: View {
         }
         .scrollContentBackground(.hidden)
         .toolbar {
-            NavigationLink(destination: AddMovieView(movies: $movies), label: { Text("ADD")})
+            NavigationLink(destination: AddMovieView(), label: { Text("ADD")})
         }
         .navigationTitle("Movie List")
         .background(LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint))

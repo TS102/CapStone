@@ -65,9 +65,9 @@
 			children = (
 				3ECD4B2E29BB7BF000ACD86F /* CapStoneApp.swift */,
 				3ECD4B4129BB7C5200ACD86F /* Movies.swift */,
-				3E1E3F8929C8A65400A8FFED /* DataController.swift */,
 				3ECD4B4529BB817200ACD86F /* Views */,
 				3ECD4B3229BB7BF200ACD86F /* Assets.xcassets */,
+				3E1E3F8929C8A65400A8FFED /* DataController.swift */,
 				3E1E3F8629C8A59500A8FFED /* MovieModel.xcdatamodeld */,
 				3ECD4B3429BB7BF200ACD86F /* Preview Content */,
 			);

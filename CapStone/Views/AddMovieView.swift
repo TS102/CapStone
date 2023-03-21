@@ -20,7 +20,7 @@ struct AddMovieView: View {
     
  
 
-    @Binding var movies: [Movie]
+//    @Binding var movies: [Movie]
     
 
     
@@ -58,7 +58,7 @@ struct AddMovieView: View {
                     newMovie.myReview = myReview
                     
                     try?(moc.save())
-
+                    print("movie has been added")
                     
 //                    movies.append(newMovie)
                     
@@ -76,7 +76,7 @@ struct AddMovieView: View {
 struct AddMovieView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddMovieView(movies: .constant([]))
+            AddMovieView()
         }
     }
 }
