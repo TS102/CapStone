@@ -16,13 +16,9 @@ struct MovieDetailView: View {
             
             VStack(spacing:110) {
                 HStack(spacing: 50) {
-                    if let date = movie.releaseDateStr {
-                        Text("\(date)")
-                    } else {
-                        Text("Release Date")
-                    }
+                    
+                    Text("\(movie.releaseDate?.formatted(.dateTime.day().year().month()) ?? Date.distantPast.formatted())")
                  
-                   
                     Text(movie.genre ?? "genre")
                 }
                 VStack() {

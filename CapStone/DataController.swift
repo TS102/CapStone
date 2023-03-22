@@ -18,4 +18,14 @@ class DataController: ObservableObject {
             }
         }
     }
+    
+    func editMovie(movie: Movies, title: String, genre: String, releaseDate: Date, description: String, myReview: String) {
+        movie.title = title
+        movie.genre = genre
+        movie.releaseDate = releaseDate
+        movie.movieDescription = description
+        movie.myReview = myReview
+        
+    
+    }
 }
