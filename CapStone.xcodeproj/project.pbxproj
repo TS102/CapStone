@@ -14,7 +14,6 @@
 		3ECD4B3129BB7BF000ACD86F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3029BB7BF000ACD86F /* ContentView.swift */; };
 		3ECD4B3329BB7BF200ACD86F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3229BB7BF200ACD86F /* Assets.xcassets */; };
 		3ECD4B3629BB7BF200ACD86F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3529BB7BF200ACD86F /* Preview Assets.xcassets */; };
-		3ECD4B4229BB7C5200ACD86F /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B4129BB7C5200ACD86F /* Movies.swift */; };
 		3ECD4B4429BB803300ACD86F /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B4329BB803300ACD86F /* MovieDetailView.swift */; };
 		3ECD4B4729BB8B1100ACD86F /* MoviesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B4629BB8B1100ACD86F /* MoviesList.swift */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,6 @@
 		3ECD4B3029BB7BF000ACD86F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3ECD4B3229BB7BF200ACD86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ECD4B3529BB7BF200ACD86F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3ECD4B4129BB7C5200ACD86F /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		3ECD4B4329BB803300ACD86F /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		3ECD4B4629BB8B1100ACD86F /* MoviesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				3ECD4B2E29BB7BF000ACD86F /* CapStoneApp.swift */,
-				3ECD4B4129BB7C5200ACD86F /* Movies.swift */,
 				3ECD4B4529BB817200ACD86F /* Views */,
 				3ECD4B3229BB7BF200ACD86F /* Assets.xcassets */,
 				3E1E3F8929C8A65400A8FFED /* DataController.swift */,
@@ -166,7 +163,6 @@
 				3ECD4B4729BB8B1100ACD86F /* MoviesList.swift in Sources */,
 				3EC360DC29BF732F004E99EC /* AddMovieView.swift in Sources */,
 				3ECD4B4429BB803300ACD86F /* MovieDetailView.swift in Sources */,
-				3ECD4B4229BB7C5200ACD86F /* Movies.swift in Sources */,
 				3ECD4B3129BB7BF000ACD86F /* ContentView.swift in Sources */,
 				3E1E3F8A29C8A65400A8FFED /* DataController.swift in Sources */,
 				3E1E3F8829C8A59500A8FFED /* MovieModel.xcdatamodeld in Sources */,

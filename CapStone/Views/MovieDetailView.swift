@@ -31,7 +31,7 @@ struct MovieDetailView: View {
                 VStack {
                     Text("My Thoughts")
                         .font(.title)
-                    Text(movie.myReview ?? "my revie")
+                    Text(movie.myReview ?? "my review")
                         .padding()
                         .border(.black)
                 }

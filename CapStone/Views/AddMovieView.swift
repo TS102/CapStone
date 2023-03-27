@@ -10,8 +10,11 @@ import SwiftUI
 
 struct AddMovieView: View {
     var movie: Movies?
-    var isEditing = true
     
+    @Environment(\.dismiss) private var dismiss
+    @Binding var isEditing: Bool
+    
+    @State private var rating: Double = 0
     let genres = ["Action", "Comedy", "Horror", "Sci-Fi", "Drama", "Mystery", "Romance"]
     @State private var selectedGenre = "Action"
     
@@ -34,17 +37,17 @@ struct AddMovieView: View {
                         TextField("", text: $movieTitle).border(.black)
                         
                         Spacer()
+                        
                         DatePicker("release Date", selection: $date, displayedComponents: [.date])
                         
-                   
                         Picker("Genre", selection: $selectedGenre) {
                             ForEach(genres, id: \.self) {
                                 Text($0)
                             }
                         }.pickerStyle(.menu)
-    
                     }
                 }
+                
                 Section {
                     Text("Description:")
                     TextField("", text: $description).border(.black)
@@ -52,31 +55,45 @@ struct AddMovieView: View {
                     Text("MyReview:")
                     TextField("", text: $myReview).border(.black)
                 }
-                Button("Add Movie") {
-                    if !movieTitle.isEmpty && !description.isEmpty && !myReview.isEmpty {
-                        let newMovie = Movies(context: moc)
-                        newMovie.id = UUID()
-                        newMovie.title = movieTitle
-                        newMovie.releaseDate = date
-                        newMovie.genre = selectedGenre
-                        newMovie.movieDescription = description
-                        newMovie.myReview = myReview
-                        
-                            try?(moc.save())
-                        
-                        print("movie has been added")
+                
+                Section {
+                    VStack {
+                        Slider(value: $rating, in: 0...100, step: 10)
+                        Text("\(rating.formatted())%")
                     }
-                  
-                                    
-                                    
+                }
+                
+                Button(isEditing ? "Edit Movie" : "Add Movie") {
+                    
+                    if !movieTitle.isEmpty && !description.isEmpty && !myReview.isEmpty {
+                        if let movie {
+                            DataController().editMovie(movie: movie, title: movieTitle, genre: selectedGenre, releaseDate: date, description: description, myReview: myReview, rating: rating, context: moc)
+                            print("movie has been edited")
+                        } else {
+                            let newMovie = Movies(context: moc)
+                            newMovie.id = UUID()
+                            newMovie.title = movieTitle
+                            newMovie.releaseDate = date
+                            newMovie.genre = selectedGenre
+                            newMovie.movieDescription = description
+                            newMovie.myReview = myReview
+                            newMovie.rating = rating
+                            try? moc.save()
+                            print("movie has been added")
+                        }
+                    }
+                    withAnimation(Animation.spring(response: 0.55, dampingFraction: 0.825, blendDuration: 0)) {
+                        dismiss()
+                    }
                 }
                 .foregroundColor(Color.blue)
-                    .font(.title)
-                    .frame(maxWidth: .infinity)
+                .font(.title)
+                .frame(maxWidth: .infinity)
             }
-            .onAppear{ isMovieSent(EditMode: isEditing) }
             .background( LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topTrailing, endPoint: .bottomLeading))
             .scrollContentBackground(.hidden)
+            .onAppear{ isMovieSent(EditMode: isEditing) }
+
         }
     }
 }
@@ -85,10 +102,11 @@ struct AddMovieView: View {
 struct AddMovieView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AddMovieView()
+            AddMovieView(isEditing: .constant(false))
         }
     }
 }
+
 
 extension AddMovieView {
     func isMovieSent(EditMode: Bool) {
@@ -99,9 +117,6 @@ extension AddMovieView {
                 myReview = movie.myReview ?? "Review"
                 date = movie.releaseDate ?? Date.distantPast
                 selectedGenre = movie.genre ?? "genre"
-                
-                
-                
             }
         }
     }

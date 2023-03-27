@@ -19,13 +19,23 @@ class DataController: ObservableObject {
         }
     }
     
-    func editMovie(movie: Movies, title: String, genre: String, releaseDate: Date, description: String, myReview: String) {
+    func save(context: NSManagedObjectContext) {
+        do {
+            try context.save()
+            print("Data saved")
+        } catch {
+            print("Data could not be saved")
+        }
+    }
+    
+    func editMovie(movie: Movies, title: String, genre: String, releaseDate: Date, description: String, myReview: String, rating: Double, context: NSManagedObjectContext) {
         movie.title = title
         movie.genre = genre
         movie.releaseDate = releaseDate
         movie.movieDescription = description
         movie.myReview = myReview
+        movie.rating = rating
         
-    
+        save(context: context)
     }
 }
