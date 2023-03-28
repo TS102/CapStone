@@ -11,11 +11,18 @@ struct ContentView: View {
     @FetchRequest(sortDescriptors: []) var movies: FetchedResults<Movies>
     
     var body: some View {
-
-        NavigationView {
-            MovieListView()
+        TabView {
+            NavigationView {
+                MovieListView()
+            }
+            .tabItem {
+            Label("Movie list", systemImage: "film")
+            }
+        MoviesToWatch()
+            .tabItem {
+                Label("Movies To watch", systemImage: "film")
+            }
         }
-        
     }
 }
 

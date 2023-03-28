@@ -12,14 +12,16 @@ struct MovieDetailView: View {
     var body: some View {
         
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topTrailing, endPoint: .bottomLeading)
+            LinearGradient(gradient: Gradient(colors: [.gray, .clear, .white, .gray]), startPoint: .topTrailing, endPoint: .bottomLeading)
             
             VStack(spacing:110) {
-                HStack(spacing: 50) {
+                HStack(spacing: 55) {
                     
                     Text("\(movie.releaseDate?.formatted(.dateTime.day().year().month()) ?? Date.distantPast.formatted())")
                  
                     Text(movie.genre ?? "genre")
+                    
+                    Text("\(movie.rating.formatted())%")
                 }
                 VStack() {
                     Text("Desciption")

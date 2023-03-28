@@ -20,44 +20,59 @@ struct MovieListView: View {
     
     
     var body: some View {
-        List() {
-            ForEach(movies, id: \.id) { movie in
-                NavigationLink {
-                    if isEditing == true {
-                        AddMovieView(movie: movie, isEditing: $isEditing)
-                    } else {
-                        MovieDetailView(movie: movie)
+            List() {
+                ForEach(movies, id: \.id) { movie in
+                    NavigationLink {
+                        if isEditing == true {
+                            AddMovieView(movie: movie, isEditing: $isEditing)
+                        } else {
+                            MovieDetailView(movie: movie)
+                        }
                     }
-                    
-                     }
-                    label: {
-                    VStack {
+                label: {
+                    VStack(spacing: 20) {
                         Text(movie.title ?? "movie title")
                             .font(.title)
-                        
-                        Text("\(movie.releaseDate?.formatted(.dateTime.day().year().month()) ?? Date.distantPast.formatted())")
-                        HStack{
-                            Text("\(movie.rating.formatted())%")
+                        HStack(spacing: 50) {
+                            
+                            Text("\(movie.releaseDate?.formatted(.dateTime.day().year().month()) ?? Date.distantPast.formatted())")
+                            
+                            
+                            Text("Rating: \(movie.rating.formatted())%")
+                            switch movie.rating {
+                            case 50...70:
+                                Image("Spilledpopcorn").resizable().scaledToFit().aspectRatio(contentMode: .fit)
+                            case 71...90:
+                                Image("Popcorn").resizable().scaledToFit().aspectRatio(contentMode: .fit)
+                            case 91...100:
+                                Image("Oscar").resizable().scaledToFit().aspectRatio(contentMode: .fit)
+                            default:
+                                Image("Rotten").resizable().scaledToFit().aspectRatio(contentMode: .fit)
+                            }
+                         
+                            
                         }
                     }
                 }
-            }.onDelete(perform: deleteMovies)
-            VStack {
-                Text("movie count \(movies.count)")
+                }.onDelete(perform: deleteMovies)
+                VStack {
+                    Text("movie count \(movies.count)")
+                }
             }
-        }.toolbar {
-            NavigationLink(destination: AddMovieView( isEditing: $isEditing), label: { Text("Add")}).disabled(isEditing)
+            .toolbar {
+                NavigationLink(destination: AddMovieView( isEditing: $isEditing), label: { Text("Add")}).disabled(isEditing)
+                
+                Button(isEditing ? "Done" : "Edit" ) {
+                    isEditing.toggle()
+                }
+            }
+            .background {
+                LinearGradient(gradient: Gradient(colors: [.clear, .white, .gray]), startPoint: startPoint, endPoint: endPoint)
+            }
             
-            Button(isEditing ? "Done" : "Edit" ) {
-                isEditing.toggle()
-            }
-        }
-        .background {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint)
-        }
-        .scrollContentBackground(.hidden)
-        .navigationTitle("Movie List")
-        .background(LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: startPoint, endPoint: endPoint))
+            .scrollContentBackground(.hidden)
+            .navigationTitle("Movie List")
+            .background(LinearGradient(gradient: Gradient(colors: [.gray, .clear, .white, .gray]), startPoint: startPoint, endPoint: endPoint))
         
     }
     
@@ -69,6 +84,7 @@ struct MovieListView: View {
         
         try? moc.save()
     }
+
 }
     
 

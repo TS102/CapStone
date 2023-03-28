@@ -29,7 +29,7 @@ struct AddMovieView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topTrailing, endPoint: .bottomLeading)
+            LinearGradient(gradient: Gradient(colors: [.gray ,.clear, .white, .gray]), startPoint: .topTrailing, endPoint: .bottomLeading)
             Form {
                 VStack(alignment: .leading) {
                     Section {
@@ -58,7 +58,7 @@ struct AddMovieView: View {
                 
                 Section {
                     VStack {
-                        Slider(value: $rating, in: 0...100, step: 10)
+                        Slider(value: $rating, in: 0...100, step: 1)
                         Text("\(rating.formatted())%")
                     }
                 }
@@ -90,7 +90,7 @@ struct AddMovieView: View {
                 .font(.title)
                 .frame(maxWidth: .infinity)
             }
-            .background( LinearGradient(gradient: Gradient(colors: [.blue, .white, .pink]), startPoint: .topTrailing, endPoint: .bottomLeading))
+            .background( LinearGradient(gradient: Gradient(colors: [.gray, .clear, .white, .gray]), startPoint: .topTrailing, endPoint: .bottomLeading))
             .scrollContentBackground(.hidden)
             .onAppear{ isMovieSent(EditMode: isEditing) }
 
@@ -117,6 +117,7 @@ extension AddMovieView {
                 myReview = movie.myReview ?? "Review"
                 date = movie.releaseDate ?? Date.distantPast
                 selectedGenre = movie.genre ?? "genre"
+                rating = movie.rating
             }
         }
     }
