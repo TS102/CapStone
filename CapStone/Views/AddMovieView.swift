@@ -33,12 +33,13 @@ struct AddMovieView: View {
             Form {
                 VStack(alignment: .leading) {
                     Section {
-                        Text("Movie:")
-                        TextField("", text: $movieTitle).border(.black)
+                        Text("Movie:").font(.title3)
+                        TextField("", text: $movieTitle).border(.black) 
+
                         
                         Spacer()
                         
-                        DatePicker("release Date", selection: $date, displayedComponents: [.date])
+                        DatePicker("release Date:", selection: $date, displayedComponents: .date)
                         
                         Picker("Genre", selection: $selectedGenre) {
                             ForEach(genres, id: \.self) {
@@ -49,14 +50,17 @@ struct AddMovieView: View {
                 }
                 
                 Section {
-                    Text("Description:")
-                    TextField("", text: $description).border(.black)
+                    Text("Description:").font(.title3)
+                    TextField("", text: $description, axis: .vertical).border(.black)
                     
-                    Text("MyReview:")
-                    TextField("", text: $myReview).border(.black)
+                    Text("MyReview:").font(.title3)
+                    TextField("", text: $myReview, axis: .vertical).border(.black)
+                }.onTapGesture {
+                    self.hideKeyboard()
                 }
                 
                 Section {
+                    Text("How would you rate it?").font(.title3)
                     VStack {
                         Slider(value: $rating, in: 0...100, step: 1)
                         Text("\(rating.formatted())%")
@@ -68,6 +72,7 @@ struct AddMovieView: View {
                     if !movieTitle.isEmpty && !description.isEmpty && !myReview.isEmpty {
                         if let movie {
                             DataController().editMovie(movie: movie, title: movieTitle, genre: selectedGenre, releaseDate: date, description: description, myReview: myReview, rating: rating, context: moc)
+                            isEditing.toggle()
                             print("movie has been edited")
                         } else {
                             let newMovie = Movies(context: moc)
@@ -121,7 +126,12 @@ extension AddMovieView {
             }
         }
     }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
+
 
 
 

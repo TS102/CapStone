@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E1E3F8829C8A59500A8FFED /* MovieModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E3F8629C8A59500A8FFED /* MovieModel.xcdatamodeld */; };
 		3E1E3F8A29C8A65400A8FFED /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1E3F8929C8A65400A8FFED /* DataController.swift */; };
+		3E28943C29DB277E005939EF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28943B29DB277E005939EF /* Color.swift */; };
+		3E9F5BD329D71EA9003CECC5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F5BD229D71EA8003CECC5 /* Settings.swift */; };
 		3EC360DC29BF732F004E99EC /* AddMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC360DB29BF732F004E99EC /* AddMovieView.swift */; };
 		3ECD4B2F29BB7BF000ACD86F /* CapStoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B2E29BB7BF000ACD86F /* CapStoneApp.swift */; };
 		3ECD4B3129BB7BF000ACD86F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3029BB7BF000ACD86F /* ContentView.swift */; };
@@ -16,12 +18,13 @@
 		3ECD4B3629BB7BF200ACD86F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD4B3529BB7BF200ACD86F /* Preview Assets.xcassets */; };
 		3ECD4B4429BB803300ACD86F /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B4329BB803300ACD86F /* MovieDetailView.swift */; };
 		3ECD4B4729BB8B1100ACD86F /* MoviesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD4B4629BB8B1100ACD86F /* MoviesList.swift */; };
-		3EF81D2929D33D1F00FFF4C4 /* MoviesToWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF81D2829D33D1F00FFF4C4 /* MoviesToWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E1E3F8729C8A59500A8FFED /* MovieDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieDataModel.xcdatamodel; sourceTree = "<group>"; };
 		3E1E3F8929C8A65400A8FFED /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		3E28943B29DB277E005939EF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		3E9F5BD229D71EA8003CECC5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		3EC360DB29BF732F004E99EC /* AddMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieView.swift; sourceTree = "<group>"; };
 		3ECD4B2B29BB7BF000ACD86F /* CapStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECD4B2E29BB7BF000ACD86F /* CapStoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapStoneApp.swift; sourceTree = "<group>"; };
@@ -30,7 +33,6 @@
 		3ECD4B3529BB7BF200ACD86F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3ECD4B4329BB803300ACD86F /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		3ECD4B4629BB8B1100ACD86F /* MoviesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesList.swift; sourceTree = "<group>"; };
-		3EF81D2829D33D1F00FFF4C4 /* MoviesToWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesToWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +88,10 @@
 			children = (
 				3ECD4B3029BB7BF000ACD86F /* ContentView.swift */,
 				3ECD4B4629BB8B1100ACD86F /* MoviesList.swift */,
-				3EF81D2829D33D1F00FFF4C4 /* MoviesToWatch.swift */,
 				3ECD4B4329BB803300ACD86F /* MovieDetailView.swift */,
 				3EC360DB29BF732F004E99EC /* AddMovieView.swift */,
+				3E9F5BD229D71EA8003CECC5 /* Settings.swift */,
+				3E28943B29DB277E005939EF /* Color.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,12 +168,13 @@
 			files = (
 				3ECD4B4729BB8B1100ACD86F /* MoviesList.swift in Sources */,
 				3EC360DC29BF732F004E99EC /* AddMovieView.swift in Sources */,
+				3E9F5BD329D71EA9003CECC5 /* Settings.swift in Sources */,
 				3ECD4B4429BB803300ACD86F /* MovieDetailView.swift in Sources */,
-				3EF81D2929D33D1F00FFF4C4 /* MoviesToWatch.swift in Sources */,
 				3ECD4B3129BB7BF000ACD86F /* ContentView.swift in Sources */,
 				3E1E3F8A29C8A65400A8FFED /* DataController.swift in Sources */,
 				3E1E3F8829C8A59500A8FFED /* MovieModel.xcdatamodeld in Sources */,
 				3ECD4B2F29BB7BF000ACD86F /* CapStoneApp.swift in Sources */,
+				3E28943C29DB277E005939EF /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CapStone/Preview Content\"";
+				DEVELOPMENT_TEAM = 2NZ598YJKN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -327,6 +332,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CapStone/Preview Content\"";
+				DEVELOPMENT_TEAM = 2NZ598YJKN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

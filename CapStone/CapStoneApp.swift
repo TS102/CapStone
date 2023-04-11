@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct CapStoneApp: App {
     @StateObject private var dataController = DataController()
+    
+
 
 
     var body: some Scene {
