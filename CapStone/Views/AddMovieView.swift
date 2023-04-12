@@ -11,6 +11,7 @@ import SwiftUI
 struct AddMovieView: View {
     var movie: Movies?
     
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) private var dismiss
     @Binding var isEditing: Bool
     
@@ -18,13 +19,14 @@ struct AddMovieView: View {
     let genres = ["Action", "Comedy", "Horror", "Sci-Fi", "Drama", "Mystery", "Romance"]
     @State private var selectedGenre = "Action"
     
-    @Environment(\.managedObjectContext) var moc
     
     @State private var movieTitle: String = ""
-    @State private var genre: String = ""
     @State private var description: String = ""
     @State private var myReview: String = ""
     @State private var date = Date()
+    
+    @FocusState var isInputActive: Bool
+    
  
     
     var body: some View {
@@ -34,7 +36,7 @@ struct AddMovieView: View {
                 VStack(alignment: .leading) {
                     Section {
                         Text("Movie:").font(.title3)
-                        TextField("", text: $movieTitle).border(.black) 
+                        TextField("", text: $movieTitle).border(.black).focused($isInputActive)
 
                         
                         Spacer()
@@ -51,12 +53,18 @@ struct AddMovieView: View {
                 
                 Section {
                     Text("Description:").font(.title3)
-                    TextField("", text: $description, axis: .vertical).border(.black)
+                    TextField("", text: $description, axis: .vertical).border(.black).focused($isInputActive)
                     
                     Text("MyReview:").font(.title3)
-                    TextField("", text: $myReview, axis: .vertical).border(.black)
-                }.onTapGesture {
-                    self.hideKeyboard()
+                    TextField("", text: $myReview, axis: .vertical).border(.black).focused($isInputActive)
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                        Button("Done") {
+                            isInputActive = false
+                                }
+                            }
+                        }
                 }
                 
                 Section {
@@ -125,10 +133,6 @@ extension AddMovieView {
                 rating = movie.rating
             }
         }
-    }
-    
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
